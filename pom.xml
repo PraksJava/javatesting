@@ -3,6 +3,7 @@
   <groupId>sonar.testing</groupId>
   <artifactId>javatesting</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
   <properties>
      <maven.compiler.source>1.8</maven.compiler.source>
      <maven.compiler.target>1.8</maven.compiler.target>
@@ -14,7 +15,32 @@
   <version>3.10.1</version>
   <type>maven-plugin</type>
 </dependency>
+
 </dependencies>
+
+<build>
+<plugins>
+<plugin>
+    <groupId>org.owasp</groupId>
+    <artifactId>dependency-check-maven</artifactId>
+    <version>7.0.4</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>aggregate</goal>
+            </goals>
+         </execution>
+    </executions>
+    <configuration>
+        <formats>
+            <format>json</format>
+            <format>html</format>
+        </formats>
+    </configuration>
+</plugin>
+
+</plugins>
+</build>
 
 
 
